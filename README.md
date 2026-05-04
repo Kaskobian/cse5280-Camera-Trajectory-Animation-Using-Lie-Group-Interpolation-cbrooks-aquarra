@@ -77,3 +77,41 @@ The program supports four runtime presets:
 └── screenshots/
     ├── terminal_progress.png
     └── sample_render.png
+
+## Lie-Group Camera Animation Menu
+
+Run the project normally:
+
+```bash
+python raytracer.py
+```
+
+The menu now includes assignment presets. For the easiest full deliverable, choose:
+
+```text
+5. RECOMMENDED: high-res 1080p animation + MP4 + trajectory plot
+```
+
+Option 5 automatically creates:
+
+- `lie_animation_output_RECOMMENDED_1080p/frames/`
+- `lie_animation_output_RECOMMENDED_1080p/lie_group_camera_animation.mp4`
+- `lie_animation_output_RECOMMENDED_1080p/camera_trajectory.png`
+
+The report is kept separate as `lie_group_animation_report_SEPARATE.md`. The script does not generate report files inside the animation output folder.
+
+The terminal prints frame progress, row progress, elapsed time, and ETA while rendering.
+
+Other useful options:
+
+```text
+6  Quick tiny test animation + MP4
+7  Trajectory plot only
+8  CPU 640x400 animation + MP4
+9  GPU 720p animation + MP4
+10 GPU 1080p smoother animation + MP4
+11 GPU 4K short animation + MP4
+12 Bonus tangent-space perturbed animation + MP4
+```
+
+If CUDA is available, option 5 uses GPU automatically. If CUDA/Numba fails because `libdevice` or CUDA compiler files are missing, the program now stops cleanly and prints the exact install command instead of showing a long traceback. For CPU fallback, use option 8.
